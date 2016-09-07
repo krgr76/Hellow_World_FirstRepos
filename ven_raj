@@ -1,6 +1,168 @@
-i
-hellow
-how are you
-how you are doing
-I want to be a good programmer 
+java.awt.event.*;
+import javax.swing.*;
+ 
+public class rum extends JFrame implements ActionListener{
+ 
+    public static void main(String[] argv) {
+        rum mainApp = new rum();
+    }
+    public rum()
+    {
+ 
+        super("Store Query");
+        setBounds(0, 0, 300, 300);
+        setResizable(false);
+        setLocation(400,250);
+        setSize(400,400);
+        getContentPane().setLayout(null);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+ 
+        passwordfield = new JPasswordField(15);
+        passwordfield.setLocation(140, 10);
+        passwordfield.setSize(passwordfield.getPreferredSize());
+ 
+        String passwordString = String.copyValueOf(passwordfield.getPassword());
+ 
+ 
+        button1 = new JButton("Admin Login");
+        button1.setLocation(10, 40);
+        button1.setSize(button1.getPreferredSize());
+ 
+        button1.addActionListener(this);
+ 
+        getContentPane().add(button1);
+        setVisible(true);
+  /**      
+        button1 = new JButton(new ImageIcon("image.jpg"));
+ 
+        button1.setPressedIcon(new ImageIcon("image.jpg"));
+        button1.setRolloverIcon(new ImageIcon("image.jpg"));
+ 
+        button1.setFocusPainted(false);
+        button1.setContentAreaFilled(false);
+        button1.setBorderPainted(false);
+ 
+        button1.setMargin(new Insets(0, 0, 0, 0));
+ 
+        button1.addActionListener(this);
+ 
+        getContentPane().add(button1);
+        setVisible(true);
+*/
+ 
+        menuBar = new JMenuBar();
+        menuBar.setBounds(0, 0, 400, 25);
+ 
+        fileMenu = new JMenu("File");
+        fileMenu.setMnemonic('F');
+ 
+        openItem = new JMenuItem("Open...");
+        openItem.addActionListener(this);
+ 
+        saveItem = new JMenuItem("Save...");
+        saveItem.addActionListener(this);
+ 
+        quitItem = new JMenuItem("Quit");
+        quitItem.addActionListener(this);
+        // add items to file menu object
+        fileMenu.add(openItem);
+        fileMenu.add(saveItem);
+        fileMenu.addSeparator();
+        fileMenu.add(quitItem);
+ 
+        //creating rumolar menu
+ 
+        rumolarMenu = new JMenu("Rumolar");
+        rumolarMenu.setMnemonic('R');
+        //creating items under rumolar
+        RentalItem = new JMenuItem("Rentals");
+        RentalItem.addActionListener(this);
+ 
+        SupermarketItem = new JMenu("Supermarket");
+        SupermarketItem.addActionListener(this);
+ 
+        OthersItem = new JMenu("Others");
+        OthersItem.addActionListener(this);
+        //add items under rumolar to rumolar menu bar
+        rumolarMenu.add(RentalItem);
+        rumolarMenu.add(SupermarketItem);
+        rumolarMenu.add(OthersItem);
+ 
+        //creating the about tab
+ 
+        AboutMenu = new JMenu("About");
+        AboutMenu.addActionListener(this);
+        AboutMenu.setMnemonic('A');
+ 
+        //adding to main menu bar
+ 
+        menuBar.add(fileMenu);
+        menuBar.add(rumolarMenu);
+        menuBar.add(AboutMenu);
+ 
+        getContentPane().add(menuBar);
+        setVisible(true);
+    }
+    public void actionPerformed(ActionEvent e)
+    {
+        if (e.getSource() == openItem)
+        {
+            //what to open
+            JOptionPane.showMessageDialog(this, "You selected the 'open' menu option", "Info", 
+                JOptionPane.INFORMATION_MESSAGE); 
+        }
+        else if (e.getSource() == saveItem)
+        {
+            //what to save
+            JOptionPane.showMessageDialog(this, "You selected the 'save' menu option", "Info",
+                JOptionPane.INFORMATION_MESSAGE);    
+        }
+        else if (e.getSource() == quitItem)
+        {
+            System.exit(1);
+        }
+        else if (e.getSource() == RentalItem)
+        {
+            JOptionPane.showMessageDialog(this, "You selected the 'Rumolar rentals' menu option", "Info",
+                JOptionPane.INFORMATION_MESSAGE);  
+        }
+        else if (e.getSource() == SupermarketItem)
+        {
+            JOptionPane.showMessageDialog(this, "You selected the 'Rumolar Supermarket' menu option", "Info",
+                JOptionPane.INFORMATION_MESSAGE);  
+        }
+        else if (e.getSource() == OthersItem)
+        {
+            JOptionPane.showMessageDialog(this, "You selected the 'Rumolar others' menu option", "Info",
+                JOptionPane.INFORMATION_MESSAGE);  
+        }
+         else if (e.getSource() == AboutMenu)
+        {
+            JOptionPane.showMessageDialog(this, "This program was developed for RUMOLAR INC. by RUMOLAR SOFTWARES", "Info",
+                JOptionPane.INFORMATION_MESSAGE);  
+        }
+        else if(e.getSource() == button1)
+        {
+            getContentPane().add(passwordfield);
+            setVisible(true);
+        }
+       }
+ 
+    JMenuBar menuBar;
+        JMenu fileMenu;
+            JMenuItem openItem;
+            JMenuItem saveItem;
+             JMenuItem quitItem;
+        JMenu rumolarMenu;
+            JMenuItem RentalItem;
+            JMenuItem SupermarketItem;
+            JMenuItem OthersItem;
+        JMenu AboutMenu;
+       JButton button1;
+       JPasswordField passwordfield;
+ 
+}
+ 
 
+ 
+ Reply With Quote Reply With Quote  
